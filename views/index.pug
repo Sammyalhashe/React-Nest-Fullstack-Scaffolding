@@ -1,0 +1,22 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title React Fullstack Scaffolding
+    script(type="text/javascript").
+        // this is unescaped and is necessary here
+        window.initialData = !{JSON.stringify(initialData)};
+        function retInitData() {
+            return !{JSON.stringify(initialData)}
+        }
+    
+body
+    // in PUG, div= initialMarkup is the same as
+    // div #{initialMarkup} 
+    // NOTE: ! -> unescaped, # -> escaped
+    div#root !{initialMarkup}
+
+
+    // react scripts are marked as 'external' in webpack config
+    script(crossorigin, src="https://unpkg.com/react@16/umd/react.production.min.js")
+    script(crossorigin, src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js")
+    script(src="/bundle.js", charset="utf-8")
